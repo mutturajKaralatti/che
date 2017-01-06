@@ -17,6 +17,18 @@ export interface IEnvironmentManagerMachine extends che.IEnvironmentMachine {
   };
 }
 
-interface IEnvironmentManagerMachineServer extends che.IEnvironmentMachineServer {
-  runtimeUrl?: string;
+export interface IEnvironmentManagerMachineServer extends che.IEnvironmentMachineServer {
+  systemScope: boolean;
+  runtime?: IEnvironmentRuntimeMachineServer;
+}
+
+export interface IEnvironmentRuntimeMachineServer extends che.IEnvironmentMachineServer {
+  address: string;
+  properties: {
+    [propName: string]: string;
+  };
+  protocol: string;
+  port: string;
+  ref: string;
+  url: string;
 }
